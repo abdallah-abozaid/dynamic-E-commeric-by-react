@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  text-decoration: none !important;
+}
+a:hover,
+button:hover {
+  color: white !important;
+}
