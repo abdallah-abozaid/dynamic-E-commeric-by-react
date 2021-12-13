@@ -48,4 +48,4 @@ const TheNavbar = () => {
   );
 };
 
-export default TheNavbar;
+export default React.memo(TheNavbar);

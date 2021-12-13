@@ -7,7 +7,8 @@ const PageNotFound = () => {
       <h1>
         404 Page Not Found
         <br />
-        <ImSad /> <FaNotEqual />
+        <ImSad />
+        <FaNotEqual />
       </h1>
     </div>
   );

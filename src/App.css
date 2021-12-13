@@ -179,11 +179,55 @@ body {
   overflow: hidden;
 }
 .card img {
-  transition: all 0.3s linear;
+  transition: all 0.5s linear;
 }
 .card:hover img {
   transform: scale(1.2);
 }
 .notfound {
   height: 500px;
+}
+.outer {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  transition: all 0.5s linear;
+  background-color: var(--yelloColor);
+  padding: 10px;
+  border: 1px solid var(--darkColor);
+  border-top-left-radius: 10px;
+  z-index: 100;
+}
+.outer2 {
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  transition: all 0.5s linear;
+  background-color: var(--lightColor);
+  padding: 10px;
+  border: 1px solid var(--darkColor);
+  border-top-left-radius: 10px;
+  z-index: 100;
+}
+.card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 1px solid #2325282c !important;
+}
+.card:hover .outer,
+.card:hover .outer2 {
+  bottom: 0px;
+  right: 0;
+}
+.sell-icon {
+  font-size: 25px;
+}
+.incart {
+  font-size: 10px !important;
+  font-weight: 500;
+  color: #f3f3f3;
+}
+.incart svg {
+  font-size: 19px;
 }

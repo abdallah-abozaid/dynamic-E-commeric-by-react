@@ -6,12 +6,9 @@ import { Routes, Route } from "react-router-dom";
 import CartDetails from "./components/CartDetails";
 import PageNotFound from "./components/PageNotFound";
 import CartPage from "./components/CartPage";
-import TheModel from "./components/TheModel";
-import MyContext from "./store/context";
-import React, { useContext } from "react";
+import React from "react";
 import { RiEmotionHappyLine } from "react-icons/ri";
 function App() {
-  const ctx = useContext(MyContext);
   return (
     <>
       <TheNavbar />
@@ -21,8 +18,6 @@ function App() {
         <Route path="/cartpage" element={<CartPage />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
-
-      <TheModel show={ctx.modalShow} onHide={() => ctx.setModalShow(false)} />
       <footer
         className="text-center py-2 mt-5"
         style={{ backgroundColor: "blue", color: "white" }}
@@ -33,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default React.memo(App);

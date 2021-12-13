@@ -18,9 +18,7 @@ const CartPage = () => {
           <h3>Cart Is Empty</h3>
           <p>
             Please select item{" "}
-            <BsArrowRightSquareFill className="text-bright" /> go product
-            details <BsArrowRightSquareFill className="text-bright" /> add to
-            cart
+            <BsArrowRightSquareFill className="text-bright" /> Add To Cart
           </p>
           <Button
             variant="outline-info"
@@ -39,4 +37,4 @@ const CartPage = () => {
   );
 };
 
-export default CartPage;
+export default React.memo(CartPage);

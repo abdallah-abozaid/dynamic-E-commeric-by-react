@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
 import MyContext from "../store/context";
-import { Link } from "react-router-dom";
 const TheModel = (props) => {
   const ctx = useContext(MyContext);
   return (
@@ -26,11 +25,15 @@ const TheModel = (props) => {
           <Button variant="outline-info" onClick={props.onHide}>
             Continue Shoping
           </Button>
-          <Link to={`/cardDetails/${ctx.ItemClicked.id}`} className="d-block">
-            <Button variant="outline-warning" onClick={props.onHide}>
-              Go To product Details
-            </Button>
-          </Link>
+
+          <Button
+            variant="outline-warning"
+            onClick={() => {
+              ctx.addProductToCart(ctx.ItemClicked.id);
+            }}
+          >
+            Add To Cart
+          </Button>
         </Modal.Footer>
       </Modal>
     </div>

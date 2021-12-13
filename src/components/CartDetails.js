@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MyContext from "../store/context";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { Button } from "react-bootstrap";
 const CartDetails = () => {
   const ctx = useContext(MyContext);
@@ -10,6 +11,11 @@ const CartDetails = () => {
     return item.id == param.id;
   });
   let theItem = ctx.Items[find];
+  const exit = useCallback(
+    ctx.CartItems.findIndex((item) => {
+      return item.id === theItem.id;
+    })
+  );
   return (
     <div className="item-details">
       <h1>{theItem.title}</h1>
@@ -32,14 +38,25 @@ const CartDetails = () => {
             Back to Products
           </Button>
           {"  "}
-          <Button
-            variant="outline-warning"
-            onClick={() => {
-              ctx.addProductToCart(theItem.id);
-            }}
-          >
-            Add To Cart
-          </Button>
+
+          {exit === -1 && (
+            <Button
+              variant="outline-warning"
+              onClick={() => {
+                ctx.addProductToCart(theItem.id);
+              }}
+            >
+              Add To Cart
+            </Button>
+          )}
+          {exit !== -1 && (
+            <Button variant="outline-warning" disabled>
+              <sub>
+                <BsFillCartCheckFill />
+              </sub>
+              In Cart
+            </Button>
+          )}
         </div>
       </div>
     </div>

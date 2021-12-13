@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import MyContext from "../store/context";
 import { Row } from "react-bootstrap";
 import Item from "./Item";
+import TheModel from "./TheModel";
 const ProductList = () => {
   const ctx = useContext(MyContext);
   return (
@@ -15,8 +16,9 @@ const ProductList = () => {
           <Item key={item.id} item={item} />
         ))}
       </Row>
+      <TheModel show={ctx.modalShow} onHide={() => ctx.setModalShow(false)} />
     </div>
   );
 };
 
-export default ProductList;
+export default React.memo(ProductList);
